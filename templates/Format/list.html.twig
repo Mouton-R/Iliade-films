@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{ format.nom }}
+{% endblock %}
+
+{% block body %}
+
+	<main class="contrainer">
+		<section class="row">
+			<div>
+				<h1>{{ format.nom }}</h1>
+			</div>
+			<hr>
+			{% for film in films.data %}
+				<div class="col-4">
+					<div class="item">
+
+						<a href="{{ path('movies_details', {"slug": film.slug}) }}" class="card-link">
+							<img src="\images\image1-min.png" class="image" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img">
+
+						</a>
+						<div class="middle">
+							<div class="title">{{ film.titre }}</div>
+						</div>
+
+					</svg>
+				</div>
+			</div>
+		{% endfor %}
+		{% set path = 'format_list' %}
+		{% set slug = format.slug %}
+		{% set pages = films.pages %}
+		{% set currentPage = films.page %}
+		{% include "partials/pagination.html.twig" %}
+
+	</section>
+</main>{% endblock %}
