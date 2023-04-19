@@ -6,24 +6,8 @@
 			<h1 class="display-4">Bienvenue sur le site d'Iliade &amp; films</h1>
 			<p class="lead">Iliade &amp; films est une société de production audiovisuel indépendante, spécialisée dans l'animation.</p>
 			<hr class="my-4">
-			<section class="row">
-				{% for format in Formats %}
-					<div class="col-4">
-						<div class="card mb-3">
-							<h3 class="card-header">{{ format.titre }}</h3>
-							<img src="\images\iliade.svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-							<rect width="100%" height="100%" fill="#868e96"></rect>
+			<section class="row"></section>
+		</div>
 
-						</svg>
-
-						<div class="card-body">
-							<a href="{{path('categories_list', {slug :format.slug}) }}" class="card-link">Voir l'ensemble des productions</a>
-						</div>
-					</div>
-				</div>
-			{% endfor %}
-
-		</section>
 	</div>
-
-</div>{% endblock %}
+{% endblock %}

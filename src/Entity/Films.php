@@ -2,13 +2,17 @@
 
 namespace App\Entity;
 
+
 use App\Repository\FilmsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FilmsRepository::class)]
 class Films
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -22,9 +26,6 @@ class Films
 
     #[ORM\Column(length: 400)]
     private ?string $Scénario = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $Format = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $Année = null;
@@ -82,7 +83,17 @@ class Films
 
     #[ORM\ManyToOne(inversedBy: 'films')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Formats $Formats = null;
+    private ?Categories $categories = null;
+
+    #[ORM\OneToMany(mappedBy: 'films', targetEntity: Images::class, orphanRemoval: true)]
+    private Collection $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -121,18 +132,6 @@ class Films
     public function setScénario(string $Scénario): self
     {
         $this->Scénario = $Scénario;
-
-        return $this;
-    }
-
-    public function getFormat(): ?string
-    {
-        return $this->Format;
-    }
-
-    public function setFormat(string $Format): self
-    {
-        $this->Format = $Format;
 
         return $this;
     }
@@ -353,14 +352,44 @@ class Films
         return $this;
     }
 
-    public function getFormats(): ?Formats
+    public function getCategories(): ?Categories
     {
-        return $this->Formats;
+        return $this->categories;
     }
 
-    public function setFormats(?Formats $Formats): self
+    public function setCategories(?Categories $categories): self
     {
-        $this->Formats = $Formats;
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setFilms($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getFilms() === $this) {
+                $image->setFilms(null);
+            }
+        }
 
         return $this;
     }

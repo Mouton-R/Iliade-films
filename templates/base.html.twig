@@ -6,12 +6,16 @@
 			{% block title %}Iliade &amp; films
 			{% endblock %}
 		</title>
-		<link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block stylesheets %}{% endblock %}
-		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
+		<meta
+		name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- feuilles de styles -->
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"> {% block stylesheets %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+
+		<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
+		{% block javascripts %}{% endblock %}
+		<script src="{{ asset('assets/js/scripts.js') }}" defer></script>
 	</head>
 	<body>
 		<nav>
