@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-	{{ format.nom }}
+	{{ category.name}}
 {% endblock %}
 
 {% block body %}
@@ -9,7 +9,7 @@
 	<main class="contrainer">
 		<section class="row">
 			<div>
-				<h1>{{ format.nom }}</h1>
+				<h1>{{ category.name}}</h1>
 			</div>
 			<hr>
 			{% for film in films.data %}
@@ -29,10 +29,10 @@
 			</div>
 		{% endfor %}
 		{# {% set path = 'format_list' %}
-				{% set slug = format.slug %}
-				{% set pages = films.pages %}
-				{% set currentPage = films.page %}
-				{% include "partials/pagination.html.twig" %} #}
+						{% set slug = format.slug %}
+						{% set pages = films.pages %}
+						{% set currentPage = films.page %}
+						{% include "partials/pagination.html.twig" %} #}
 
 	</section>
 </main>{% endblock %}

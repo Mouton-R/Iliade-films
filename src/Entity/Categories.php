@@ -18,8 +18,11 @@ class Categories
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column]
     private ?string $name = null;
+
+    #[ORM\Column(length: 100)]
+    private ?int $categoryOrder = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]
     private ?self $parent = null;
@@ -121,6 +124,30 @@ class Categories
                 $film->setCategories(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of categoryOrder
+     *
+     * @return ?int
+     */
+    public function getCategoryOrder(): ?int
+    {
+        return $this->categoryOrder;
+    }
+
+    /**
+     * Set the value of categoryOrder
+     *
+     * @param ?int $categoryOrder
+     *
+     * @return self
+     */
+    public function setCategoryOrder(?int $categoryOrder): self
+    {
+        $this->categoryOrder = $categoryOrder;
 
         return $this;
     }

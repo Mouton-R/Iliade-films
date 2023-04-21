@@ -5,4 +5,13 @@
 
 {% block body %}
 	<h1>Page d'administration</h1>
+
+	{% if app.user and app.user.isVerified == false %}
+		<div class="alert alert-warning alert-dismissible" role="alert">
+			<button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+			<div class="alert-message">
+				<strong>Vous n'êtes pas connecté</strong>
+			</div>
+		</div>
+	{% endif %}
 {% endblock %}
