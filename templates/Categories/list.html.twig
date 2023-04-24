@@ -16,7 +16,7 @@
 				<div class="col-4">
 					<div class="item">
 
-						<a href="{{ path('movies_details', {"slug": film.slug}) }}" class="card-link">
+						<a href="{{ path('films_details', {"slug": film.slug}) }}" class="card-link">
 							<img src="\images\image1-min.png" class="image" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img">
 
 						</a>
@@ -29,10 +29,10 @@
 			</div>
 		{% endfor %}
 		{# {% set path = 'format_list' %}
-						{% set slug = format.slug %}
-						{% set pages = films.pages %}
-						{% set currentPage = films.page %}
-						{% include "partials/pagination.html.twig" %} #}
+								{% set slug = format.slug %}
+								{% set pages = films.pages %}
+								{% set currentPage = films.page %}
+								{% include "partials/pagination.html.twig" %} #}
 
 	</section>
 </main>{% endblock %}

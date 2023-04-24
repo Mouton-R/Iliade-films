@@ -1,1 +1,65 @@
 {% extends "base.html.twig" %}
+{% block title %}
+	{{ film.titre }}
+{% endblock %}
+
+{% block body %}
+	{{ film.titre }}
+	<main class="container">
+		<section class="raw">
+			<div class="col-6">
+				<div id="carouselExampleIndicators" class="carousel slide">
+					<div class="carousel-indicators">
+						{% for iteration in 1.. film.images|length %}
+							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ iteration -1 }}" {{ (loop.first) ? 'class="active" aria-current="true"' : '' }} aria-label="{{ iteration }}"></button>
+
+						{% endfor %}
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					</div>
+					<div class="carousel-inner">
+						{% for image in film.images %}
+							<div class="carousel-item {{ (loop.fisrt ) ? 'active' : '' }}">
+
+								<img src="{{ asset('assets/uploads/') ~ image.titre }}" class="d-block w-100" alt=" {{ film.titre }}">
+							</div>
+						{% endfor %}
+
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+				<ul>
+					<li>{{ film.titre }}</li>
+					<li>{{ film.synopsis }}</li>
+					<li>Réalisation :{{ film.réalisation }}</li>
+					<li>Scénario :{{ film.scénario }}</li>
+					<li>Année de production :{{ film.année }}</li>
+					<li>Durée :{{ film.durée }}</li>
+					<li>Coproduction :{{ film.coproduction }}</li>
+					<li>Soutiens :{{ film.soutiens }}</li>
+					<li>Distribution :{{ film.distribution }}</li>
+					<li>Diffusion :{{ film.diffusion }}</li>
+					<li>Sélections :{{ film.sélections }}</li>
+					<li>Avec :{{ film.avec }}</li>
+					<li>Image :{{ film.image }}</li>
+					<li>Son :{{ film.son }}</li>
+					<li>Montage :{{ film.montage }}</li>
+					<li>Musique :{{ film.musique }}</li>
+					<li>Direction :{{ film.direction }}</li>
+					<li>Régie :{{ film.régie }}</li>
+					<li>Décors :{{ film.décors }}</li>
+					<li>Costumes :{{ film.costumes }}</li>
+					<li>Etalonnage :{{ film.etalonnage }}</li>
+				</ul>
+			</div>
+		</section>
+	</main>
+
+{% endblock %}
