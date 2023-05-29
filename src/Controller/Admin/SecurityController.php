@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Form\ResetPasswordRequestFormType;
 use App\Repository\UserRepository;

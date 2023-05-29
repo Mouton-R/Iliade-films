@@ -6,27 +6,31 @@
 			{% block title %}Iliade &amp; films
 			{% endblock %}
 		</title>
-		<meta
-		name="viewport" content="width=device-width, initial-scale=1.0">
+		<metaname="viewport"
+			content="width=device-width, initial-scale=1.0">
+			<!-- feuilles de styles -->
+			<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+			{% block stylesheets %}
+				{{ encore_entry_link_tags('app') }}
+			{% endblock %}
+			<!-- JS -->
 
-		<!-- feuilles de styles -->
-		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"> {% block stylesheets %}{% endblock %}
-		<link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+			{% block javascripts %}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}
 
-		<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
-		{% block javascripts %}{% endblock %}
-		<script src="{{ asset('assets/js/scripts.js') }}" defer></script>
-	</head>
-	<body>
-		<nav>
+		</head>
+
+		<body>
 			{% include "partials/navbar.html.twig" %}
-		</nav>
 
-		<div class="container"> {% block body %}{% endblock %}
-			</div>
 
-			<footer>
-				{% include "partials/footer.html.twig" %}
-			</footer>
-		</body>
+			<div class="container"> {% block body %}{% endblock %}
+				</div>
+
+				<footer>
+					{% include "partials/footer.html.twig" %}
+				</footer>
+			</body>
+		</head>
 	</html>

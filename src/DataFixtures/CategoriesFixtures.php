@@ -35,6 +35,7 @@ class CategoriesFixtures extends Fixture
 
         $category = new Categories();
         $category->setName($name)
+            ->setCategoryOrder(1)
             ->setSlug($this->slugger->slug($category->getName()));
         $manager->persist($category);
 

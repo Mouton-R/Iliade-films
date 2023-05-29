@@ -1,10 +1,11 @@
 {% extends "base.html.twig" %}
+
 {% block title %}
 	{{ film.titre }}
 {% endblock %}
 
 {% block body %}
-	{{ film.titre }}
+	<h1 class="d-flex justify-content-center">{{ film.titre }}</h1>
 	<main class="container">
 		<section class="raw">
 			<div class="col-6">
@@ -38,25 +39,44 @@
 				<ul>
 					<li>{{ film.titre }}</li>
 					<li>{{ film.synopsis }}</li>
-					<li>Réalisation :{{ film.réalisation }}</li>
-					<li>Scénario :{{ film.scénario }}</li>
-					<li>Année de production :{{ film.année }}</li>
-					<li>Durée :{{ film.durée }}</li>
-					<li>Coproduction :{{ film.coproduction }}</li>
-					<li>Soutiens :{{ film.soutiens }}</li>
-					<li>Distribution :{{ film.distribution }}</li>
-					<li>Diffusion :{{ film.diffusion }}</li>
-					<li>Sélections :{{ film.sélections }}</li>
-					<li>Avec :{{ film.avec }}</li>
-					<li>Image :{{ film.image }}</li>
-					<li>Son :{{ film.son }}</li>
-					<li>Montage :{{ film.montage }}</li>
-					<li>Musique :{{ film.musique }}</li>
-					<li>Direction :{{ film.direction }}</li>
-					<li>Régie :{{ film.régie }}</li>
-					<li>Décors :{{ film.décors }}</li>
-					<li>Costumes :{{ film.costumes }}</li>
-					<li>Etalonnage :{{ film.etalonnage }}</li>
+					<li>Réalisation :
+						{{ film.réalisation }}</li>
+					<li>Scénario :
+						{{ film.scénario }}</li>
+					<li>Année de production :
+						{{ film.année }}</li>
+					<li>Durée :
+						{{ film.durée }}</li>
+					<li>Coproduction :
+						{{ film.coproduction }}</li>
+					<li>Soutiens :
+						{{ film.soutiens }}</li>
+					<li>Distribution :
+						{{ film.distribution }}</li>
+					<li>Diffusion :
+						{{ film.diffusion }}</li>
+					<li>Sélections :
+						{{ film.sélections }}</li>
+					<li>Avec :
+						{{ film.avec }}</li>
+					<li>Image :
+						{{ film.image }}</li>
+					<li>Son :
+						{{ film.son }}</li>
+					<li>Montage :
+						{{ film.montage }}</li>
+					<li>Musique :
+						{{ film.musique }}</li>
+					<li>Direction :
+						{{ film.direction }}</li>
+					<li>Régie :
+						{{ film.régie }}</li>
+					<li>Décors :
+						{{ film.décors }}</li>
+					<li>Costumes :
+						{{ film.costumes }}</li>
+					<li>Etalonnage :
+						{{ film.etalonnage }}</li>
 				</ul>
 			</div>
 		</section>
