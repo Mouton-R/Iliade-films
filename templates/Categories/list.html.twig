@@ -6,12 +6,13 @@
 
 {% block body %}
 
+	{% if category.name %}{% endif %}
+
 	<main class="contrainer">
 		<section class="row">
-			<div>
+			<div class="mb-4">
 				<h1 class="d-flex justify-content-center">{{ category.name}}</h1>
 			</div>
-			<hr class="border-0">
 			{% for film in films %}
 				<div class="col-4">
 					<div class="item">
@@ -29,10 +30,10 @@
 			</div>
 		{% endfor %}
 		{# {% set path = 'format_list' %}
-																{% set slug = format.slug %}
-																{% set pages = films.pages %}
-																{% set currentPage = films.page %}
-																{% include "partials/pagination.html.twig" %} #}
+																														{% set slug = format.slug %}
+																														{% set pages = films.pages %}
+																														{% set currentPage = films.page %}
+																														{% include "partials/pagination.html.twig" %} #}
 
 	</section>
 </main>{% endblock %}
