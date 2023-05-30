@@ -39,7 +39,7 @@ class RegistrationController extends AbstractController
 
             //on envoie un mail
             $mail->send(
-                'no-reply@Iliade&films.com',
+                'no-reply@iliadefilms.com',
                 $user->getEmail(),
                 'Activation de votre compte sur le site Iliade&films',
                 'register',

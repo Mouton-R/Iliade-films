@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/categories_', name: 'categories_')]
+#[Route('/categories', name: 'categories_')]
 class CategoriesController extends AbstractController
 {
     #[Route('/{slug}', name: 'list')]

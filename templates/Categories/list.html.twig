@@ -6,8 +6,6 @@
 
 {% block body %}
 
-	{% if category.name %}{% endif %}
-
 	<main class="contrainer">
 		<section class="row">
 			<div class="mb-4">
@@ -30,10 +28,10 @@
 			</div>
 		{% endfor %}
 		{# {% set path = 'format_list' %}
-																														{% set slug = format.slug %}
-																														{% set pages = films.pages %}
-																														{% set currentPage = films.page %}
-																														{% include "partials/pagination.html.twig" %} #}
+																																{% set slug = format.slug %}
+																																{% set pages = films.pages %}
+																																{% set currentPage = films.page %}
+																																{% include "partials/pagination.html.twig" %} #}
 
 	</section>
 </main>{% endblock %}

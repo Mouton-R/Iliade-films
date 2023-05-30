@@ -23,16 +23,16 @@ class Films
     private ?string $Titre = null;
 
     #[ORM\Column(length: 400)]
-    private ?string $Réalisation = null;
+    private ?string $Realisation = null;
 
     #[ORM\Column(length: 400)]
-    private ?string $Scénario = null;
+    private ?string $Scenario = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $Année = null;
+    private ?int $Annee = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $Durée = null;
+    private ?int $Duree = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $Synopsis = null;
@@ -50,7 +50,7 @@ class Films
     private ?string $Diffusion = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $Sélections = null;
+    private ?string $Selections = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $Avec = null;
@@ -71,10 +71,10 @@ class Films
     private ?string $Direction = null;
 
     #[ORM\Column(length: 400, nullable: true)]
-    private ?string $Régie = null;
+    private ?string $Regie = null;
 
     #[ORM\Column(length: 400, nullable: true)]
-    private ?string $Décors = null;
+    private ?string $Decors = null;
 
     #[ORM\Column(length: 400, nullable: true)]
     private ?string $Costumes = null;
@@ -113,50 +113,50 @@ class Films
         return $this;
     }
 
-    public function getRéalisation(): ?string
+    public function getRealisation(): ?string
     {
-        return $this->Réalisation;
+        return $this->Realisation;
     }
 
-    public function setRéalisation(string $Réalisation): self
+    public function setRealisation(string $Realisation): self
     {
-        $this->Réalisation = $Réalisation;
+        $this->Realisation = $Realisation;
 
         return $this;
     }
 
-    public function getScénario(): ?string
+    public function getScenario(): ?string
     {
-        return $this->Scénario;
+        return $this->Scenario;
     }
 
-    public function setScénario(string $Scénario): self
+    public function setScenario(string $Scenario): self
     {
-        $this->Scénario = $Scénario;
+        $this->Scenario = $Scenario;
 
         return $this;
     }
 
-    public function getAnnée(): ?int
+    public function getAnnee(): ?int
     {
-        return $this->Année;
+        return $this->Annee;
     }
 
-    public function setAnnée(?int $Année): self
+    public function setAnnee(?int $Annee): self
     {
-        $this->Année = $Année;
+        $this->Annee = $Annee;
 
         return $this;
     }
 
-    public function getDurée(): ?int
+    public function getDuree(): ?int
     {
-        return $this->Durée;
+        return $this->Duree;
     }
 
-    public function setDurée(?int $Durée): self
+    public function setDuree(?int $Duree): self
     {
-        $this->Durée = $Durée;
+        $this->Duree = $Duree;
 
         return $this;
     }
@@ -221,14 +221,14 @@ class Films
         return $this;
     }
 
-    public function getSélections(): ?string
+    public function getSelections(): ?string
     {
-        return $this->Sélections;
+        return $this->Selections;
     }
 
-    public function setSélections(?string $Sélections): self
+    public function setSelections(?string $Selections): self
     {
-        $this->Sélections = $Sélections;
+        $this->Selections = $Selections;
 
         return $this;
     }
@@ -305,26 +305,26 @@ class Films
         return $this;
     }
 
-    public function getRégie(): ?string
+    public function getRegie(): ?string
     {
-        return $this->Régie;
+        return $this->Regie;
     }
 
-    public function setRégie(?string $Régie): self
+    public function setRegie(?string $Regie): self
     {
-        $this->Régie = $Régie;
+        $this->Regie = $Regie;
 
         return $this;
     }
 
-    public function getDécors(): ?string
+    public function getDecors(): ?string
     {
-        return $this->Décors;
+        return $this->Decors;
     }
 
-    public function setDécors(?string $Décors): self
+    public function setDecors(?string $Decors): self
     {
-        $this->Décors = $Décors;
+        $this->Decors = $Decors;
 
         return $this;
     }

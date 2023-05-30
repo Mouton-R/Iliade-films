@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Films;
+use App\Form\FilmsFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -19,16 +21,3 @@ class FilmsController extends AbstractController
         );
     }
 }
-// class HomeController extends AbstractController
-// {
-//     #[Route('/', name: 'index')]
-//     public function home(FormatsRepository $formatsRepository): Response
-//     {
-//         return $this->render('blog/index.html.twig', [
-//             'formats' => $formatsRepository->findBy(
-//                 [],
-//                 ['formatsOrder' => 'asc']
-//             )
-//         ]);
-//     }
-// }
