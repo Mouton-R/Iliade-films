@@ -3,13 +3,13 @@
 namespace App\Entity;
 
 use App\Entity\Trait\SlugTrait;
-use App\Repository\CategoriesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\FormatsRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
-#[ORM\Entity(repositoryClass: CategoriesRepository::class)]
-class Categories
+#[ORM\Entity(repositoryClass: FormatsRepository::class)]
+class Formats
 {
     use SlugTrait;
 
@@ -18,24 +18,26 @@ class Categories
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
+    #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 100)]
-    private ?int $categoryOrder = null;
 
-    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]
+    #[ORM\Column(type: 'integer')]
+    private $formatOrder;
+
+    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'formats')]
+    #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?self $parent = null;
 
     #[ORM\OneToMany(mappedBy: 'parent', targetEntity: self::class)]
-    private Collection $categories;
+    private Collection $formats;
 
-    #[ORM\OneToMany(mappedBy: 'categories', targetEntity: Films::class)]
+    #[ORM\OneToMany(mappedBy: 'formats', targetEntity: Films::class)]
     private Collection $films;
 
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
+        $this->formats = new ArrayCollection();
         $this->films = new ArrayCollection();
     }
 
@@ -71,27 +73,27 @@ class Categories
     /**
      * @return Collection<int, self>
      */
-    public function getCategories(): Collection
+    public function getFormats(): Collection
     {
-        return $this->categories;
+        return $this->formats;
     }
 
-    public function addCategory(self $category): self
+    public function addFormat(self $format): self
     {
-        if (!$this->categories->contains($category)) {
-            $this->categories->add($category);
-            $category->setParent($this);
+        if (!$this->formats->contains($format)) {
+            $this->formats->add($format);
+            $format->setParent($this);
         }
 
         return $this;
     }
 
-    public function removeCategory(self $category): self
+    public function removeFormat(self $format): self
     {
-        if ($this->categories->removeElement($category)) {
+        if ($this->formats->removeElement($format)) {
             // set the owning side to null (unless already changed)
-            if ($category->getParent() === $this) {
-                $category->setParent(null);
+            if ($format->getParent() === $this) {
+                $format->setParent(null);
             }
         }
 
@@ -110,7 +112,7 @@ class Categories
     {
         if (!$this->films->contains($film)) {
             $this->films->add($film);
-            $film->setCategories($this);
+            $film->setFormats($this);
         }
 
         return $this;
@@ -120,8 +122,8 @@ class Categories
     {
         if ($this->films->removeElement($film)) {
             // set the owning side to null (unless already changed)
-            if ($film->getCategories() === $this) {
-                $film->setCategories(null);
+            if ($film->getFormats() === $this) {
+                $film->setFormats(null);
             }
         }
 
@@ -129,25 +131,19 @@ class Categories
     }
 
     /**
-     * Get the value of categoryOrder
-     *
-     * @return ?int
+     * Get the value of formatOrder
      */
-    public function getCategoryOrder(): ?int
+    public function getFormatOrder()
     {
-        return $this->categoryOrder;
+        return $this->formatOrder;
     }
 
     /**
-     * Set the value of categoryOrder
-     *
-     * @param ?int $categoryOrder
-     *
-     * @return self
+     * Set the value of formatOrder
      */
-    public function setCategoryOrder(?int $categoryOrder): self
+    public function setFormatOrder($formatOrder): self
     {
-        $this->categoryOrder = $categoryOrder;
+        $this->formatOrder = $formatOrder;
 
         return $this;
     }

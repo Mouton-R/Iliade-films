@@ -84,9 +84,9 @@ class Films
 
     #[ORM\ManyToOne(inversedBy: 'films')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Categories $categories = null;
+    private ?Formats $formats = null;
 
-    #[ORM\OneToMany(mappedBy: 'films', targetEntity: Images::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'films', targetEntity: Images::class, orphanRemoval: true, cascade: ['persist'])]
     private Collection $images;
 
     public function __construct()
@@ -353,14 +353,14 @@ class Films
         return $this;
     }
 
-    public function getCategories(): ?Categories
+    public function getFormats(): ?Formats
     {
-        return $this->categories;
+        return $this->formats;
     }
 
-    public function setCategories(?Categories $categories): self
+    public function setFormats(?Formats $formats): self
     {
-        $this->categories = $categories;
+        $this->formats = $formats;
 
         return $this;
     }

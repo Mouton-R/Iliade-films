@@ -9,29 +9,23 @@
 	<main class="container">
 		<section class="raw">
 			<div class="col-6">
-				<div id="carouselExampleIndicators" class="carousel slide">
-					<div class="carousel-indicators">
-						{% for iteration in 1.. film.images|length %}
-							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ iteration -1 }}" {{ (loop.first) ? 'class="active" aria-current="true"' : '' }} aria-label="{{ iteration }}"></button>
-
-						{% endfor %}
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-					</div>
+				<div id="carouselExample" class="carousel slide">
 					<div class="carousel-inner">
-						{% for image in film.images %}
-							<div class="carousel-item {{ (loop.fisrt ) ? 'active' : '' }}">
-
-								<img src="{{ asset('assets/uploads/') ~ image.titre }}" class="d-block w-100" alt=" {{ film.titre }}">
-							</div>
-						{% endfor %}
-
+						<div class="carousel-item active">
+							<img src="..." class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="..." class="d-block w-100" alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="..." class="d-block w-100" alt="...">
+						</div>
 					</div>
-					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
 						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 						<span class="visually-hidden">Previous</span>
 					</button>
-					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
 						<span class="carousel-control-next-icon" aria-hidden="true"></span>
 						<span class="visually-hidden">Next</span>
 					</button>
